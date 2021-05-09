@@ -10,7 +10,7 @@ echo "$HEAD Installing zsh $TAIL"
 sudo apt install zsh
 
 echo "$HEAD Setting zsh to default, to enable it you must log out $TAIL"
-sudo chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "$HEAD Installing python2 $TAIL"
 sudo apt install python
