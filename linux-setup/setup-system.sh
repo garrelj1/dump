@@ -6,6 +6,12 @@ HEAD="
 TAIL=" -----!
 "
 
+echo "$HEAD Installing zsh $TAIL"
+sudo apt install zsh
+
+echo "$HEAD Setting zsh to default, to enable it you must log out $TAIL"
+sudo chsh -s $(which zsh)
+
 echo "$HEAD Installing python2 $TAIL"
 sudo apt install python
 
@@ -28,6 +34,7 @@ sudo apt install vim
 
 echo "$HEAD Installing my custom dot files $TAIL"
 [ -d ~/dotfiles/jeremy ] || git clone https://github.com/garrelj1/dump.git ~/dotfiles/jeremy
+[ -d ~/dotfiles/jeremy ] && cd ~/dotfiles/jeremy; git pull
 
 echo "$HEAD Updating .vimrc $TAIL"
 cp ~/dotfiles/jeremy/.vimrc ~/
