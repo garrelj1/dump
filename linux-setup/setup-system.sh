@@ -12,7 +12,7 @@ sudo apt install python
 echo "$HEAD Installing git $TAIL"
 sudo apt install git
 
-git config --global user.email "garrellj101@gmail.com"
+git config --global user.email ""
 git config --global user.name "Jeremy Garrell"
 
 echo "$HEAD Installing VIM and dependencies $TAIL"
