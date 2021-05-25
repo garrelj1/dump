@@ -51,3 +51,6 @@ filetype plugin indent on    " required
 syntax enable
 colorscheme badwolf
 set termguicolors
+
+" Number "
+set number
