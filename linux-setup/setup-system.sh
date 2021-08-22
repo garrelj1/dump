@@ -6,6 +6,9 @@ HEAD="
 TAIL=" -----!
 "
 
+echo "$HEAD Creating workspace $TAIL"
+mkdir ~/workspace
+
 echo "$HEAD Installing curl $TAIL"
 sudo apt install curl
 
@@ -19,20 +22,14 @@ git config --global user.email "garrellj101@gmail.com"
 git config --global user.name "Jeremy Garrell"
 
 echo "$HEAD Installing VIM and dependencies $TAIL"
-# Add Vundle for vim setup
-[ -d ~/.vim/bundle/Vundle.vim ] || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# Add color packs
-[ -d ~/.vim/color-schemes ] || git clone https://github.com/flazz/vim-colorschemes.git ~/.vim/color-schemes
-cd ~/.vim/color-schemes
-cp -r colors ..
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 sudo apt install vim
 sudo apt install vim-gtk3
 
 echo "$HEAD Installing my custom dot files $TAIL"
 [ -d ~/.dotfiles] || git clone https://github.com/garrelj1/dump.git ~/.dotfiles
-[ -d ~/.dotfiles] && cd ~/.dotfiles; git pull
 
 echo "$HEAD Updating .vimrc $TAIL"
 cp ~/.dotfiles/linux-setup/.vimrc ~/
@@ -48,3 +45,6 @@ sudo apt install python
 
 echo "$HEAD Installing Node JS $TAIL"
 sudo snap install node --classic
+
+echo "$HEAD Installing VS Code $TAIL"
+sudo snap install --classic code
