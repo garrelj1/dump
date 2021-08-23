@@ -9,6 +9,9 @@ TAIL=" -----!
 echo "$HEAD Creating workspace $TAIL"
 mkdir ~/workspace
 
+echo "$HEAD Installing packages $TAIL"
+sudo apt install build-essential dkms
+
 echo "$HEAD Installing curl $TAIL"
 sudo apt install curl
 
@@ -48,3 +51,6 @@ sudo snap install node --classic
 
 echo "$HEAD Installing VS Code $TAIL"
 sudo snap install --classic code
+
+echo "$HEAD Installing VS Code $TAIL"
+sudo snap install --classic android-studio
