@@ -26,6 +26,12 @@ Plug 'liuchengxu/vim-which-key'
 
 Plug 'mattn/webapi-vim'
 
+" Docker support
+Plug 'danishprakash/vim-docker'
+
+" Kotlin support
+Plug 'udalov/kotlin-vim'
+
 call plug#end()
 
 " MarkdownPreview settings
@@ -34,7 +40,7 @@ let g:mkdp_path_to_chrome = "brave-browser --new-window"
 
 " rust.vim settings "
 " Auto format when a rust file is saved
-let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 1
 
 " Open buffers as tabs "
 set switchbuf=usetab
