@@ -7,6 +7,16 @@ filetype indent on
 " Setup make files to tab shift properly
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
+
+" Auto installs plugged plug-in manager if it is not already installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+""""""""""""""""
+" Start plug ins
 call plug#begin('~/.vim/plugged')
 
 " Plugin for Colors
@@ -32,22 +42,25 @@ Plug 'danishprakash/vim-docker'
 " Kotlin support
 Plug 'udalov/kotlin-vim'
 
+
 call plug#end()
+" End plug ins
+"""""""""""""""
 
 " MarkdownPreview settings
-" Add option to open new window when opening google chrome
+" Add option to open new window 
 let g:mkdp_path_to_chrome = "brave-browser --new-window"
 
 " rust.vim settings "
 " Auto format when a rust file is saved
-" let g:rustfmt_autosave = 1
-
+let g:rustfmt_autosave = 1
 " Open buffers as tabs "
 set switchbuf=usetab
 
 " Colors "
+"colorscheme badwolf
 syntax enable
-colorscheme badwolf
+colorscheme simpleblack
 set termguicolors
 
 " Number "
